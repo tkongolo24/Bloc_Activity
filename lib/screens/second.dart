@@ -7,7 +7,7 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _counterBloc = BlocProvider.of<CounterBloc>(context);
+    final counterBloc = BlocProvider.of<CounterBloc>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +22,7 @@ class SecondPage extends StatelessWidget {
             Text("Press the button to change the counter value"),
 
             BlocBuilder<CounterBloc, int>(
-              bloc: _counterBloc,
+              bloc: counterBloc,
               builder: (context, counter) {
                 return Text(
                   "$counter",
@@ -45,7 +45,7 @@ class SecondPage extends StatelessWidget {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _counterBloc.add(DecrementCounter());
+          counterBloc.add(DecrementCounter());
         },
         child: Icon(Icons.minimize),
       ),

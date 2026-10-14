@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _counterBloc = BlocProvider.of<CounterBloc>(context);
+    final counterBloc = BlocProvider.of<CounterBloc>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
               "Press the button to change the counter value",
             ),
             BlocBuilder(
-              bloc: _counterBloc,
+              bloc: counterBloc,
               builder: (context, counter) {
                 return Text("$counter",
                 style: TextStyle(fontSize: 50),);
@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
       ),
 
       floatingActionButton: FloatingActionButton(onPressed: (){
-        _counterBloc.add(IncrementCounter());
+        counterBloc.add(IncrementCounter());
       },
       child: Icon(Icons.add),),
     );
